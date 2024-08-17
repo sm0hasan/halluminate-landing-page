@@ -1,118 +1,74 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="min-h-screen flex flex-col justify-between items-center bg-white">
+      <header className="flex justify-between items-center p-4 w-full max-w-7xl">
+        <Image src="/images/halluminatelogo.svg" alt="logo" width={150} height={150} />
+        <nav className="hidden md:block">
+          <ul className="flex space-x-11">
+            {["Home", "Documentation", "Pricing", "Blogs", "Contact"].map((item) => (
+              <li key={item}>
+                <Link href="#" className="hover:text-blue-600">
+                  {item}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <button className="bg-white text-md font-semibold leading-6 text-gray-900 border border-black rounded-xl px-4 py-2 hover:text-indigo-700 hover:border-indigo-700">
+          Log In
+        </button>
+      </header>
+
+      <section className="text-left py-20 w-full max-w-7xl">
+        <div className="bg-blue-100 inline-block px-4 py-2 rounded-full mb-4">
+          Announcement: Halluminate Web App Launch →
         </div>
-      </div>
+        <h1 className="text-6xl font-medium mb-6">
+          <span className="text-blue-600 font-bold">Custom</span> testing<br />
+          for AI agents
+        </h1>
+        <p className="text-xl mb-8">
+          Create, finetune, and deploy application specific evaluation models to<br />
+          test your AI agents.
+        </p>
+        <div className="space-x-4">
+          <button className="bg-black text-white px-6 py-3 rounded">Try now for free</button>
+          <button className="border border-black px-6 py-3 rounded">Chat with us</button>
+        </div>
+      </section>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <section className="text-center py-10 pb-28 w-full max-w-7xl">
+        <p className="text-gray-500 mb-4">Trusted by Developers</p>
+        <div className="flex justify-center space-x-8 flex-wrap">
+          {["arkifi", "Harvey", "KPMG", "Oxbridge", "Robinhood", "SpikeyAI", "stripe"].map((company) => (
+            <Image 
+              key={company}
+              src={`/images/${company}.png`}
+              alt={company}
+              width={100}
+              height={40}
+              className="h-10 object-contain"
+            />
+          ))}
+        </div>
+      </section>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <section className="bg-black text-white text-center py-20 w-full">
+        <h2 className="text-4xl font-bold mb-4">More building. Less <span className="text-blue-600">testing.</span></h2>
+      </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <section className="py-20 text-center w-full max-w-7xl border">
+        <h2 className="text-3xl font-bold mb-4">Try our <span className="text-blue-600">demo</span> below</h2>
+        <p className="mb-20">AI agent outputs will be graded against pre-defined criteria judged by evaluation models.</p>
+          <div className="max-w-5xl mx-auto grid grid-cols-5 grid-rows-5 gap-4 border items-stretc">
+            <div className="row-span-2 border ">1</div>
+            <div className="row-span-3 border">2</div>
+            <div className="row-start-3 border">3</div>
+          </div>
+        </section>
     </main>
   );
 }
